@@ -107,9 +107,8 @@ def plugin_unloaded():
 def plugin_loaded():
     for w in sublime.windows():
         for v in w.views():
-            if v.settings().get("vintage_start_in_command_mode"):
-                v.settings().set('command_mode', True)
-                v.settings().set('inverse_caret_state', True)
+            v.settings().set('command_mode', True)
+            v.settings().set('inverse_caret_state', True)
             update_status_line(v)
 
 # Ensures the input state is reset when the view changes, or the user selects
@@ -140,8 +139,7 @@ class InputStateTracker(sublime_plugin.EventListener):
         update_status_line(view)
 
     def on_load(self, view):
-        if view.settings().get("vintage_start_in_command_mode"):
-            view.run_command('exit_insert_mode')
+        view.run_command('exit_insert_mode')
 
     def on_new(self, view):
         self.on_load(view)
