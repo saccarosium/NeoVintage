@@ -16,12 +16,6 @@
 		]
 	},
 
-	{ "keys": ["escape"], "command": "hide_auto_complete", "context":
-		[
-			{ "key": "auto_complete_visible", "operator": "equal", "operand": true }
-		]
-	},
-
 	{ "keys": ["escape"], "command": "vi_cancel_current_action", "context":
 		[
 			{ "key": "setting.command_mode" },
