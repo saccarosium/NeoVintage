@@ -63,16 +63,9 @@
 	{ "keys": ["z", "z"], "command" : "center_on_cursor", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "t"], "command" : "scroll_cursor_line_to_top", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "b"], "command" : "scroll_cursor_line_to_bottom", "context": [{"key": "setting.command_mode"}] },
-
 	{ "keys": ["Z", "Z"], "command" : "vi_save_and_exit", "context": [{"key": "setting.command_mode"}] },
 
-	{ "keys": ["i"], "command": "enter_insert_mode",
-	  "context":
-	  [
-			{"key": "setting.command_mode"},
-			{"key": "selection_empty"}
-	  ]
-	},
+	{ "keys": ["i"], "command": "enter_insert_mode", "context": [{"key": "setting.command_mode"}, {"key": "selection_empty"}] },
 
 	{ "keys": ["I"], "command": "enter_insert_mode", "args":
 		{"insert_command": "vi_move_to_first_non_white_space_character"},
@@ -145,9 +138,8 @@
 		]
 	},
 
-	{ "keys": ["v"], "command": "enter_visual_mode",
-		"context": [{"key": "setting.command_mode"}]
-	},
+	{ "keys": ["v"], "command": "enter_visual_mode", "context": [{"key": "setting.command_mode"}] },
+	
 	{ "keys": ["v"], "command": "set_motion_mode", "args": {"mode": "normal"},
 		"context":
 		[
@@ -351,8 +343,7 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{
-		"keys": ["g", "q"], "command": "set_action", "args": {"action": "wrap_lines", "description": "Wrap Lines"},
+	{ "keys": ["g", "q"], "command": "set_action", "args": {"action": "wrap_lines", "description": "Wrap Lines"},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
