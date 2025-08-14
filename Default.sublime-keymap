@@ -52,6 +52,14 @@
 		]
 	},
 
+	{ "keys": ["ctrl+y"], "command": "scroll_lines", "args": {"amount": 1.0 },
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["ctrl+e"], "command": "scroll_lines", "args": {"amount": -1.0 },
+		"context": [{"key": "setting.command_mode"}]
+	},
+
 	{ "keys": ["z", "z"], "command" : "center_on_cursor", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "t"], "command" : "scroll_cursor_line_to_top", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "b"], "command" : "scroll_cursor_line_to_bottom", "context": [{"key": "setting.command_mode"}] },
@@ -119,11 +127,7 @@
 	},
 
 	{ "keys": ["u"], "command": "undo", "context": [{"key": "setting.command_mode"}] },
-	{
-		"keys": ["ctrl+r"], "command": "redo",
-		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
-	},
-
+	{ "keys": ["ctrl+r"], "command": "redo", "context": [{"key": "setting.command_mode"}] },
 
 	{ "keys": ["u"], "command": "visual_lower_case",
 		"context":
@@ -633,26 +637,14 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{ "keys": ["ctrl+f"], "command": "set_motion", "args": {
-		"motion": "move",
-		"motion_args": {"by": "pages", "forward": true, "extend": true }},
-		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
-	},
-
-	{ "keys": ["ctrl+b"], "command": "set_motion", "args": {
-		"motion": "move",
-		"motion_args": {"by": "pages", "forward": false, "extend": true }},
-		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
-	},
-
 	{ "keys": ["ctrl+u"], "command": "vi_scroll_lines",
 		"args": {"forward": false},
-		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
+		"context": [{"key": "setting.command_mode"}]
 	},
 
 	{ "keys": ["ctrl+d"], "command": "vi_scroll_lines",
 		"args": {"forward": true},
-		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
+		"context": [{"key": "setting.command_mode"}]
 	},
 
 	{ "keys": ["H"], "command": "set_motion", "args": {
