@@ -37,11 +37,11 @@ def update_status_line(view):
 
     if view.settings().get('command_mode'):
         if g_input_state.motion_mode == MOTION_MODE_LINE:
-            desc = ['VISUAL LINE MODE']
+            desc = ['VISUAL LINE']
         elif view.has_non_empty_selection_region():
-            desc = ['VISUAL MODE']
+            desc = ['VISUAL']
         else:
-            desc = ['COMMAND MODE']
+            desc = ['COMMAND']
             if g_input_state.action_command is not None:
                 if g_input_state.action_description:
                     desc.append(g_input_state.action_description)
