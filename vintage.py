@@ -1099,6 +1099,35 @@ class ViReverseSelectionsDirection(sublime_plugin.TextCommand):
         for s in new_sels:
             self.view.sel().add(s)
 
+class ViSelectLastSelection(sublime_plugin.TextCommand):
+    def run(self, edit):
+        if self.view.has_non_empty_selection_region():
+            new_sel = self.view.get_regions('vintage_last_visual_selection_exited')
+            self.view.add_regions('vintage_last_visual_selection_exited',
+                                  self.view.get_regions('vintage_last_visual_selection'),
+                                  '')
+        else:
+            new_sel = self.view.get_regions('vintage_last_visual_selection')
+
+        if new_sel:
+            sel = self.view.sel()
+            sel.clear()
+            for r in new_sel:
+                sel.add(r)
+
+class VisualModeSelectionTracker(sublime_plugin.EventListener):
+    def on_selection_modified(self, view):
+        if view.has_non_empty_selection_region():
+            view.add_regions('vintage_last_visual_selection',
+                             [s for s in view.sel()],
+                             '')
+            view.settings().set('vintage_visual_mode', True)
+        elif view.settings().get('vintage_visual_mode'):
+            view.add_regions('vintage_last_visual_selection_exited',
+                             view.get_regions('vintage_last_visual_selection'),
+                             '')
+            view.settings().set('vintage_visual_mode', False) 
+
 class MoveGroupFocus(sublime_plugin.WindowCommand):
     def run(self, direction):
         cells = self.window.get_layout()['cells']

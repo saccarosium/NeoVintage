@@ -352,6 +352,8 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
+	{ "keys": ["g", "v"], "command": "vi_select_last_selection", "context": [{"key": "setting.command_mode"}] },
+
 	{ "keys": [">"], "command": "set_action", "args": {"action": "vi_indent", "description": "Indent"},
 		"context": [{"key": "setting.command_mode"}]
 	},
