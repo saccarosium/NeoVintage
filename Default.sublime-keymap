@@ -959,6 +959,10 @@
 		"motion": "expand_selection_to_paragraph"},
 		"context": [{"key": "setting.command_mode"}, {"key": "vi_can_enter_text_object"}]
 	},
+	{ "keys": ["i", "p"], "command": "set_motion", "args": {
+		"motion": "expand_selection_to_paragraph"},
+		"context": [{"key": "setting.command_mode"}, {"key": "vi_can_enter_text_object"}]
+	},
 
 	//
 	// Repeat digits
