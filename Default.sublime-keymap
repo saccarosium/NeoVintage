@@ -812,6 +812,11 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
+	{ "keys": ["alt+n"], "command": "find_under_expand" },
+	{ "keys": ["alt+shift+n"], "command": "find_under_expand_skip" },
+	{ "keys": ["alt+n"], "command": "find_under_expand" },
+	{ "keys": ["alt+p"], "command": "soft_undo" },
+
 	// Text Object motions
 
 	{ "keys": ["i", "w"], "command": "set_motion", "args": {
