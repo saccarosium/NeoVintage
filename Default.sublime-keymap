@@ -24,42 +24,6 @@
 		]
 	},
 
-	{ "keys": ["ctrl+["], "command": "exit_insert_mode",
-		"context":
-		[
-			{ "key": "setting.command_mode", "operand": false },
-			{ "key": "setting.is_widget", "operand": false },
-			{ "key": "setting.vintage_ctrl_keys" }
-		]
-	},
-
-	{ "keys": ["ctrl+["], "command": "exit_visual_mode",
-		"context":
-		[
-			{ "key": "setting.command_mode"},
-			{ "key": "num_selections", "operand": 1},
-			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": false },
-			{ "key": "setting.vintage_ctrl_keys" }
-		]
-	},
-
-	{ "keys": ["ctrl+["], "command": "vi_cancel_current_action", "context":
-		[
-			{ "key": "setting.command_mode" },
-			{ "key": "vi_has_input_state" },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": false },
-			{ "key": "setting.vintage_ctrl_keys" }
-		]
-	},
-
-	{ "keys": ["ctrl+y"], "command": "scroll_lines", "args": {"amount": 1.0 },
-		"context": [{"key": "setting.command_mode"}]
-	},
-
-	{ "keys": ["ctrl+e"], "command": "scroll_lines", "args": {"amount": -1.0 },
-		"context": [{"key": "setting.command_mode"}]
-	},
-
 	{ "keys": ["z", "z"], "command" : "center_on_cursor", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "t"], "command" : "scroll_cursor_line_to_top", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "b"], "command" : "scroll_cursor_line_to_bottom", "context": [{"key": "setting.command_mode"}] },
