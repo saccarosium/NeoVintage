@@ -24,6 +24,17 @@
 		]
 	},
 
+    // Overlays: Command Palette, Goto File, Goto Symbol, Goto Symbol in Project, Kind Info.
+	{ "keys": ["ctrl+n"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{"key": "overlay_visible"}] },
+    { "keys": ["ctrl+p"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{"key": "overlay_visible"}] },
+
+    // Auto complete.
+    { "keys": ["ctrl+n"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [{"key": "auto_complete_visible"}] },
+    { "keys": ["ctrl+p"], "command": "move", "args": {"by": "lines", "forward": false}, "context": [{"key": "auto_complete_visible"}] },
+
+    { "keys": ["ctrl+o"], "command": "jump_back", "context": [{"key": "setting.command_mode"}] },
+    { "keys": ["ctrl+i"], "command": "jump_forward", "context": [{"key": "setting.command_mode"}] },
+
 	{ "keys": ["z", "z"], "command" : "center_on_cursor", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "t"], "command" : "scroll_cursor_line_to_top", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["z", "b"], "command" : "scroll_cursor_line_to_bottom", "context": [{"key": "setting.command_mode"}] },
