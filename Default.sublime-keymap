@@ -94,8 +94,15 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{ "keys": ["u"], "command": "undo", "context": [{"key": "setting.command_mode"}] },
-	{ "keys": ["ctrl+r"], "command": "redo", "context": [{"key": "setting.command_mode"}] },
+	{ "keys": ["u"], "command": "chain",
+		"args": {"commands": [["undo"], ["exit_visual_mode"]] },
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["ctrl+r"], "command": "chain",
+		"args": {"commands": [["redo"], ["exit_visual_mode"]] },
+		"context": [{"key": "setting.command_mode"}]
+	},
 
 	{ "keys": ["u"], "command": "visual_lower_case",
 		"context":
