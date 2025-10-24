@@ -788,6 +788,9 @@
 	{ "keys": ["alt+shift+n"], "command": "find_under_expand_skip" },
 	{ "keys": ["alt+n"], "command": "find_under_expand" },
 	{ "keys": ["alt+p"], "command": "soft_undo" },
+	{ "keys": ["ctrl+alt+p"], "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["ctrl+alt+n"], "command": "select_lines", "args": {"forward": true} },
+
 
 	// Text Object motions
 
