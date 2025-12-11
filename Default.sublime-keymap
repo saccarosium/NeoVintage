@@ -301,6 +301,30 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
+	{ "keys": ["c", "r", "c"], "command": "set_action", "args": {
+		"action": "convert_ident_case", "action_args": { "case": "title", "first_case": "lower" }, 
+		"description": "camelCase"},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["c", "r", "s"], "command": "set_action", "args": {
+		"action": "convert_ident_case", "action_args": { "case": "lower", "separator": "_" }, 
+		"description": "snake_case"},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["c", "r", "m"], "command": "set_action", "args": {
+		"action": "convert_ident_case", "action_args": { "case": "title" }, 
+		"description": "MixedCase"},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["c", "r", "u"], "command": "set_action", "args": {
+		"action": "convert_ident_case", "action_args": { "case": "upper", "separator": "_" }, 
+		"description": "UPPER_CASE"},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
 	{ "keys": ["g", "u"], "command": "set_action", "args": {"action": "lower_case", "description": "Lower Case"},
 		"context": [{"key": "setting.command_mode"}]
 	},
