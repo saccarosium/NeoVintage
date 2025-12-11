@@ -759,12 +759,14 @@
 		"motion_args": {"repeat": 1, "extend": true},
 		"motion_inclusive": true },
 		"context": [{"key": "setting.command_mode"}]
+
 	},
 
 	{ "keys": ["Y"], "command": "set_action_motion", "args": {
 		"action": "vi_copy",
-		"motion": "expand_selection",
-		"motion_args": {"to": "line" }},
+		"motion": "vi_move_to_hard_eol",
+		"motion_args": {"repeat": 1, "extend": true},
+		"motion_inclusive": true },
 		"context": [{"key": "setting.command_mode"}]
 	},
 
