@@ -900,15 +900,22 @@ class PasteFromRegisterCommand(sublime_plugin.TextCommand):
         for s in regions:
             s = sublime.Region(s.a + offset, s.b + offset)
 
-            if len(text) > 0 and text[-1] == '\n':
+            if text.endswith('\n'):
                 # paste line-wise
                 if forward:
                     start = self.view.full_line(s.end()).b
+                    # If we are at the end of the buffer, add a new line as Vim does.
+                    last_row = self.view.rowcol(self.view.size())[0]
+                    if (self.view.rowcol(s.end())[0] == last_row):
+                        text = '\n' + text[:-1]
+                        new_sel.append(start + 1)
+                    else:
+                        new_sel.append(start)
                 else:
                     start = self.view.line(s.begin()).a
+                    new_sel.append(start)
 
                 num = self.view.insert(edit, start, text)
-                new_sel.append(start)
             else:
                 # paste character-wise
                 num = self.view.insert(edit, s.begin(), text)
