@@ -41,7 +41,7 @@ def update_status_line(view):
         elif view.has_non_empty_selection_region():
             desc = ['VISUAL']
         else:
-            desc = ['COMMAND']
+            desc = ['NORMAL']
             if g_input_state.action_command is not None:
                 if g_input_state.action_description:
                     desc.append(g_input_state.action_description)
@@ -59,7 +59,7 @@ def update_status_line(view):
         if g_input_state.register is not None:
             desc.insert(1, 'Register "' + g_input_state.register + '"')
     else:
-        desc = ['INSERT MODE']
+        desc = ['INSERT']
 
     view.set_status('mode', ' - '.join(desc))
 
