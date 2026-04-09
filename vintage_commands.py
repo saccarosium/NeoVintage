@@ -12,7 +12,7 @@ elif sys.platform == "darwin":
 elif sys.platform == "win32":
     OPEN_CMD = 'start "" /b'
 elif sys.platform == "cygwin":
-    OPEN_CMD = 'cygstart --hide'
+    OPEN_CMD = "cygstart --hide"
 
 
 def is_legal_path_char(c):
