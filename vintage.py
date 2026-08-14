@@ -1176,64 +1176,6 @@ class ViSelectBookmark(sublime_plugin.TextCommand):
                 self.view.sel().add(sublime.Region(start, start))
 
 
-g_macro_target = None
-
-
-class ViBeginRecordMacro(sublime_plugin.TextCommand):
-    # Custom version of run_, so an edit object isn't created.
-    def run_(self, edit_token, args):
-        return self.run(**args)
-
-    def run(self, character):
-        global g_macro_target
-        g_macro_target = character
-        self.view.run_command("start_record_macro")
-
-
-class ViEndRecordMacro(sublime_plugin.TextCommand):
-    # Custom version of run_, so an edit object isn't created.
-    def run_(self, edit_token, args):
-        return self.run()
-
-    def run(self):
-        self.view.run_command("stop_record_macro")
-        if not g_macro_target:
-            return
-
-        m = sublime.get_macro()
-        # TODO: Convert the macro to a string before trying to store it in a
-        # register
-        g_registers[g_macro_target] = m
-
-
-class ViReplayMacro(sublime_plugin.TextCommand):
-    def run(self, edit, character):
-        if not character in g_registers:
-            return
-        m = g_registers[character]
-        global g_input_state
-
-        prefix_repeat_digits, motion_repeat_digits = None, None
-        if len(g_input_state.prefix_repeat_digits) > 0:
-            prefix_repeat_digits = digits_to_number(g_input_state.prefix_repeat_digits)
-
-        if len(g_input_state.motion_repeat_digits) > 0:
-            motion_repeat_digits = digits_to_number(g_input_state.motion_repeat_digits)
-
-        repetitions = 1
-        if prefix_repeat_digits:
-            repetitions *= prefix_repeat_digits
-
-        if motion_repeat_digits:
-            repetitions *= motion_repeat_digits
-
-        for i in range(repetitions):
-            for d in m:
-                cmd = d["command"]
-                args = d["args"]
-                self.view.run_command(cmd, args)
-
-
 class ShowAsciiInfo(sublime_plugin.TextCommand):
     def run(self, edit):
         c = self.view.substr(self.view.sel()[0].end())
