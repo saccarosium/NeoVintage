@@ -263,12 +263,6 @@
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": [":"],
-        "command": "show_overlay",
-        "args": {"overlay": "command_palette", "text": ":"},
-        "context": [{"key": "setting.command_mode"}]
-    },
-    {
         "keys": ["*"], "command": "find_under",
         "args": {"select_text": false},
         "context": [{"key": "setting.command_mode"}]
