@@ -1,18 +1,9 @@
 import os
+import sys
+import subprocess
+
 import sublime
 import sublime_plugin
-import sys
-
-
-OPEN_CMD = ""
-if sys.platform == "linux":
-    OPEN_CMD = "xdg-open"
-elif sys.platform == "darwin":
-    OPEN_CMD = "open"
-elif sys.platform == "win32":
-    OPEN_CMD = 'start "" /b'
-elif sys.platform == "cygwin":
-    OPEN_CMD = "cygstart --hide"
 
 
 def is_legal_path_char(c):
@@ -46,7 +37,20 @@ class ViOpenLinkUnderSelectionCommand(sublime_plugin.TextCommand):
                 self.view, caret_pos, lambda x: x > current_line.end(), increment=1
             )
             url = self.view.substr(sublime.Region(left + 1, right))
-        os.system(f"{OPEN_CMD} {url}")
+
+        match sublime.platform():
+            case "linux":
+                cmd = ["xdg-open", url]
+            case "osx":
+                cmd = ["open", url]
+            case "windows":
+                cmd = ["cmd", "/c", f"start  /b {url}"]
+            case _:
+                raise RuntimeError("Platform not supported")
+
+        sublime.set_timeout_async(
+            lambda: subprocess.run(cmd, creationflags=subprocess.CREATE_NO_WINDOW), 0
+        )
 
 
 class ViOpenFileUnderSelectionCommand(sublime_plugin.TextCommand):
