@@ -393,7 +393,7 @@
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["c", "r", "c"],
+        "keys": ["g", "c"],
         "command": "set_action",
         "args": {
             "action": "convert_ident_case",
@@ -402,7 +402,7 @@
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["c", "r", "s"],
+        "keys": ["g", "s"],
         "command": "set_action",
         "args": {
             "action": "convert_ident_case",
@@ -411,7 +411,7 @@
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["c", "r", "m"],
+        "keys": ["g", "m"],
         "command": "set_action",
         "args": {
             "action": "convert_ident_case",
@@ -420,7 +420,7 @@
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["c", "r", "u"],
+        "keys": ["g", "M"],
         "command": "set_action",
         "args": {
             "action": "convert_ident_case",
@@ -428,7 +428,6 @@
         },
         "context": [{"key": "setting.command_mode"}]
     },
-
     {
         "keys": ["g", "?"],
         "command": "set_action",
