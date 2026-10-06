@@ -317,19 +317,24 @@
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["m", "<character>"],
-        "command": "vi_set_bookmark",
+        "keys": ["ctrl+m"],
+        "command": "clear_bookmarks",
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["`", "<character>"],
-        "command": "vi_select_bookmark",
+        "keys": ["m"],
+        "command": "toggle_bookmark",
+        "args": {"toggle_line": true},
         "context": [{"key": "setting.command_mode"}]
     },
     {
-        "keys": ["'", "<character>"],
-        "command": "vi_select_bookmark",
-        "args": {"select_bol": true},
+        "keys": ["`"],
+        "command": "prev_bookmark",
+        "context": [{"key": "setting.command_mode"}]
+    },
+    {
+        "keys": ["'"],
+        "command": "next_bookmark",
         "context": [{"key": "setting.command_mode"}]
     },
     {

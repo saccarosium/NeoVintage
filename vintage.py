@@ -1153,29 +1153,6 @@ class ViUnindent(sublime_plugin.TextCommand):
         transform_selection_regions(self.view, shrink_to_first_char)
 
 
-class ViSetBookmark(sublime_plugin.TextCommand):
-    def run(self, edit, character):
-        sublime.status_message("Set bookmark " + character)
-        self.view.add_regions(
-            "bookmark_" + character,
-            [s for s in self.view.sel()],
-            "",
-            "",
-            sublime.PERSISTENT | sublime.HIDDEN,
-        )
-
-
-class ViSelectBookmark(sublime_plugin.TextCommand):
-    def run(self, edit, character, select_bol=False):
-        self.view.run_command("select_all_bookmarks", {"name": "bookmark_" + character})
-        if select_bol:
-            sels = list(self.view.sel())
-            self.view.sel().clear()
-            for r in sels:
-                start = self.view.line(r.a).begin()
-                self.view.sel().add(sublime.Region(start, start))
-
-
 class ShowAsciiInfo(sublime_plugin.TextCommand):
     def run(self, edit):
         c = self.view.substr(self.view.sel()[0].end())
