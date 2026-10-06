@@ -245,7 +245,7 @@ class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
         row_a = self.view.rowcol(screenful.a)[0]
         row_b = self.view.rowcol(screenful.b)[0]
 
-        middle_row = (row_a + row_b) / 2
+        middle_row = int((row_a + row_b) / 2)
         middle_point = self.view.text_point(middle_row, 0)
 
         middle_point = advance_while_white_space_character(self.view, middle_point)
